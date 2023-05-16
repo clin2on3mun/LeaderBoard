@@ -103,7 +103,7 @@ Clone this repository to your desired folder:
 Install this project with:
 
 -you can download it as a zipped file
--you can clone it using OS terminal or code editor terminal-
+-you can clone it using OS terminal or code editor terminal
 -you should use npm install
 
 
