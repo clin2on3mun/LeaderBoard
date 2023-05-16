@@ -102,16 +102,16 @@ Clone this repository to your desired folder:
 
 Install this project with:
 
--you can download it as a zipped file
--you can clone it using OS terminal or code editor terminal
--you should use npm install
+- you can download it as a zipped file.
+- you can clone it using OS terminal or code editor terminal.
+- you should use npm install
 
 
 ### Usage
 
 To run the project, execute the following command:
 
--npm run start in terminal and choose the browser  
+- npm run start in terminal and choose the browser  
 
 ### Deployment
 
