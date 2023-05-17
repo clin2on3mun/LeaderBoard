@@ -5,43 +5,62 @@
 }
 
 body {
-  margin: 8% auto;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: #100404fe;
+}
+
+main {
+  border: 1px solid #6f6f6f;
+  width: 80%;
+  margin: 4% auto;
+  padding: 2%;
+  border-radius: 5px;
+  background-image: linear-gradient(to right, #020225, #04345e);
 }
 
 button {
-  border: 1px solid black;
-  padding: 5px;
-  box-shadow: 5px 3px 1px black;
+  border: none;
+  padding: 8px;
+  font-size: 1.1em;
+  cursor: pointer;
 }
 
 ul {
   list-style-type: none;
-  border: 1px solid black;
+  border: 1px solid #6f6f6f;
+}
+
+li {
+  font-weight: 600;
+  padding: 5%;
+  font-size: 1em;
 }
 
 li:nth-child(even) {
-  background-color: rgb(179, 186, 186);
+  background-color: #484a48fd;
 }
 
 .header {
   position: relative;
   top: 5%;
-  left: 16%;
+  left: 8%;
+  color: #fff;
 }
 
 .container {
   display: flex;
   gap: 20%;
-  width: 60%;
   margin: 2% auto;
+  width: 80%;
 }
 
-.scores {
-  width: 30%;
+.scores,
+.fill-the-form {
+  width: 50%;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 15px;
+  color: #fff;
 }
 
 .score-title {
@@ -49,29 +68,32 @@ li:nth-child(even) {
   justify-content: space-between;
 }
 
-.fill-the-form {
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
 .scored,
 .form-title {
-  font-size: 1.4em;
+  font-size: 1.5em;
   font-weight: 700;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-}
-
-.form-btn {
-  align-self: flex-end;
+  gap: 12px;
+  height: 20vh;
 }
 
 input {
-  padding: 1%;
+  height: 50%;
+  padding: 0 2%;
+  border-radius: 5px;
+}
+
+.form-btn {
+  color: #fff;
+  background-color: rgb(7, 192, 7);
+  align-self: flex-end;
+}
+
+.refresh {
+  background-color: #0909f3;
+  color: #fff;
 }
