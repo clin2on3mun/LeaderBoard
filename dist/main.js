@@ -116,17 +116,27 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var _modules_display_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/display.js */ \"./src/modules/display.js\");\n\n\n\nconst list = document.getElementById('list-of-score');\nconst persons = [{\n  name: 'pat',\n  score: 20,\n},\n{\n  name: 'peter',\n  score: 30,\n},\n{\n  name: 'parrot',\n  score: 20,\n},\n{\n  name: 'Belt',\n  score: 40,\n},\n{\n  name: 'Bolton',\n  score: 50,\n},\n\n];\n(0,_modules_display_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(persons, list);\n\n//# sourceURL=webpack://LeaderBoard/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var _modules_gameFunctionality_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/gameFunctionality.js */ \"./src/modules/gameFunctionality.js\");\n\n\n\nconst form = document.querySelector('form');\nconst name = document.getElementById('name');\nconst score = document.getElementById('score');\nconst refresh = document.querySelector('.refresh');\n\nconst board = new _modules_gameFunctionality_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\nform.addEventListener('submit', (e) => {\n  e.preventDefault();\n  const playerName = name.value;\n  const playerScore = score.value;\n  board.addScoreDetails(playerName, playerScore);\n  form.reset();\n});\n\nconst loadScore = async () => {\n  await board.getScoreDetails();\n  board.displayScores();\n};\nrefresh.addEventListener('click', () => {\n  loadScore();\n});\n\nwindow.onload = () => {\n  loadScore();\n};\n\n\n//# sourceURL=webpack://LeaderBoard/./src/index.js?");
 
 /***/ }),
 
-/***/ "./src/modules/display.js":
-/*!********************************!*\
-  !*** ./src/modules/display.js ***!
-  \********************************/
+/***/ "./src/modules/api.js":
+/*!****************************!*\
+  !*** ./src/modules/api.js ***!
+  \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst display = (Scores, domObj) => {\n  Scores.forEach((score) => {\n    domObj.innerHTML += `<li>${score.name}: <span>${score.score}</span></li>`;\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (display);\n\n//# sourceURL=webpack://LeaderBoard/./src/modules/display.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"getData\": () => (/* binding */ getData),\n/* harmony export */   \"postData\": () => (/* binding */ postData)\n/* harmony export */ });\nconst url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/vJxBdnrl1DUXRDIPPNqw/scores/';\n\nconst getData = async () => {\n  try {\n    const response = await fetch(url);\n    const data = await response.json();\n\n    return data.result;\n  } catch (error) {\n    return error;\n  }\n};\n\nconst postData = async (score) => {\n  try {\n    const results = await fetch(url, {\n      method: 'POST',\n\n      headers: {\n        'Content-Type': 'application/json',\n      },\n      body: JSON.stringify(score),\n    });\n    return results;\n  } catch (error) {\n    return error;\n  }\n};\n\n//# sourceURL=webpack://LeaderBoard/./src/modules/api.js?");
+
+/***/ }),
+
+/***/ "./src/modules/gameFunctionality.js":
+/*!******************************************!*\
+  !*** ./src/modules/gameFunctionality.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ BoardGame)\n/* harmony export */ });\n/* harmony import */ var _api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api.js */ \"./src/modules/api.js\");\n\n\nfunction Scoredetail(name, score) {\n  this.user = name;\n  this.score = score;\n}\nclass BoardGame {\n  constructor() {\n    this.score = [];\n  }\n\n    addScoreDetails=(name, score) => {\n      const scores = new Scoredetail(name, score);\n      (0,_api_js__WEBPACK_IMPORTED_MODULE_0__.postData)(scores);\n    }\n\n    getScoreDetails = async () => {\n      const score = await (0,_api_js__WEBPACK_IMPORTED_MODULE_0__.getData)();\n      this.score = score;\n    }\n\n    displayScores = () => {\n      const list = document.getElementById('list-of-score');\n      list.innerHTML = '';\n      this.score.forEach((score) => {\n        const li = document.createElement('li');\n        const span = document.createElement('span');\n        li.textContent = `${score.user} :`;\n        span.textContent = `${score.score}`;\n        list.appendChild(li);\n        li.appendChild(span);\n      });\n    };\n}\n\n\n//# sourceURL=webpack://LeaderBoard/./src/modules/gameFunctionality.js?");
 
 /***/ })
 

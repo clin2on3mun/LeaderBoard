@@ -1,27 +1,28 @@
 import './styles.css';
-import display from './modules/display.js';
+import BoardGame from './modules/gameFunctionality.js';
 
-const list = document.getElementById('list-of-score');
-const persons = [{
-  name: 'pat',
-  score: 20,
-},
-{
-  name: 'peter',
-  score: 30,
-},
-{
-  name: 'parrot',
-  score: 20,
-},
-{
-  name: 'Belt',
-  score: 40,
-},
-{
-  name: 'Bolton',
-  score: 50,
-},
+const form = document.querySelector('form');
+const name = document.getElementById('name');
+const score = document.getElementById('score');
+const refresh = document.querySelector('.refresh');
 
-];
-display(persons, list);
+const board = new BoardGame();
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const playerName = name.value;
+  const playerScore = score.value;
+  board.addScoreDetails(playerName, playerScore);
+  form.reset();
+});
+
+const loadScore = async () => {
+  await board.getScoreDetails();
+  board.displayScores();
+};
+refresh.addEventListener('click', () => {
+  loadScore();
+});
+
+window.onload = () => {
+  loadScore();
+};
