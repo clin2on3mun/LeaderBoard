@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width , initial-scale = 1.0">
+        <title> LeaderBoard</title>
     </head>
     <body>
         <h1 class="header">Leaderboard</h1>
@@ -10,7 +11,7 @@
         <section class="scores">
         
          
-              <p class="score-title"><span class="scored">Recent Scored</span><button type="button">Refresh</button></p>
+              <p class="score-title"><span class="scored">Recent Scored</span><button type="button" class="refresh">Refresh</button></p>
                 <ul id = "list-of-score">
                    
                  </ul>
@@ -18,8 +19,8 @@
         <section class="fill-the-form">
             <p class="form-title">Add your Score</p>
             <form>
-                <input type="text" name="name" placeholder="enter name">
-                <input type="number" name="score" placeholder="enter score">
+                <input type="text" name="name" id="name" placeholder="enter name">
+                <input type="number" name="score" id="score" placeholder="enter score">
                 <button type="submit" class="form-btn">submit</button>
                 </form>
             </section>
