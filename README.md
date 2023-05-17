@@ -61,6 +61,7 @@
 - **[using javascript to render dynamically list of scores]**
 - **[using webpack bundle files of project]**
 - **[using leaderboard api]**
+- **[Add styles to the page to improve UI]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -143,7 +144,7 @@ You can deploy this project using:
 
 
 
-- [ ] **[style the UI to look better]**
+- [ ] **[insert a remove function]**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
