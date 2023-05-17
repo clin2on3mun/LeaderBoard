@@ -60,6 +60,7 @@
 - **[diplay score on UI]**
 - **[using javascript to render dynamically list of scores]**
 - **[using webpack bundle files of project]**
+- **[using leaderboard api]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
