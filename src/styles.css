@@ -23,17 +23,21 @@ button {
   padding: 8px;
   font-size: 1.1em;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 ul {
   list-style-type: none;
   border: 1px solid #6f6f6f;
+  border-radius: 5px;
 }
 
 li {
   font-weight: 600;
   padding: 5%;
   font-size: 1em;
+  display: flex;
+  justify-content: space-between;
 }
 
 li:nth-child(even) {
@@ -72,6 +76,12 @@ li:nth-child(even) {
 .form-title {
   font-size: 1.5em;
   font-weight: 700;
+}
+
+li span {
+  background-color: black;
+  border-radius: 5px;
+  padding: 1%;
 }
 
 form {
