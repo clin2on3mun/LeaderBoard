@@ -25,7 +25,7 @@ export default class BoardGame {
       this.score.forEach((score) => {
         const li = document.createElement('li');
         const span = document.createElement('span');
-        li.textContent = `${score.user} :`;
+        li.textContent = `${score.user}`;
         span.textContent = `${score.score}`;
         list.appendChild(li);
         li.appendChild(span);
