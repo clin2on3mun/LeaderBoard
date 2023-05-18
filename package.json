@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "start": "webpack serve --open",
-     "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/clin2on3mun/LeaderBoard#readme",
   "dependencies": {
+    "gh-pages": "^5.0.0",
     "webpack": "^5.82.1",
     "webpack-cli": "^5.1.1"
   },
