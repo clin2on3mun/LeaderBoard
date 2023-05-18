@@ -71,7 +71,7 @@
 
 
 
-- [Live Demo Link](coming soon ....)
+- [Live Demo Link] (https://clin2on3mun.github.io/LeaderBoard/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
